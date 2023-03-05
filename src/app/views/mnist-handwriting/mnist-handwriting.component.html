@@ -1,0 +1,29 @@
+<mat-card>
+  <mat-card-content class="card-container">
+    <mat-card class="card-drawing">
+      <mat-card-header>
+        <mat-card-title>
+          Draw Here
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="wrapper">
+          <canvas appDrawable (newImage)="predict($event)"></canvas><br>
+        </div>
+        <div>
+          <button class="btn btn-sm btn-warning" (click)="canvas.clear()">Erase</button>
+        </div>
+      </mat-card-content>
+    </mat-card>
+    <mat-card class="card-predictions">
+      <mat-card-header>
+        <mat-card-title>
+          Predictions
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <app-chart [data]="predictions"></app-chart>
+      </mat-card-content>
+    </mat-card>
+  </mat-card-content>
+</mat-card>

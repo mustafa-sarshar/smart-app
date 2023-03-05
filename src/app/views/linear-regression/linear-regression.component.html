@@ -1,0 +1,13 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>
+      Linear Model
+    </mat-card-title>
+    <mat-card-subtitle>
+      Prediction Value: {{prediction}}
+    </mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <input type="number" (change)="linearPrediction(numberEntered.value)" #numberEntered>
+  </mat-card-content>
+</mat-card>
