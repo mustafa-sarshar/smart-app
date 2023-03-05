@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from "@angular/core";
+import { Component, OnDestroy, OnInit, ViewChild } from "@angular/core";
 
 import * as tf from "@tensorflow/tfjs";
 import { DrawableDirective } from "src/app/shared/directives/drawable.directive";
@@ -8,7 +8,7 @@ import { DrawableDirective } from "src/app/shared/directives/drawable.directive"
   templateUrl: "./mnist-handwriting.component.html",
   styleUrls: ["./mnist-handwriting.component.scss"],
 })
-export class MnistHandwritingComponent implements OnInit {
+export class MnistHandwritingComponent implements OnInit, OnDestroy {
   @ViewChild(DrawableDirective) canvas: any;
   model: tf.LayersModel;
   predictions: any;
@@ -17,10 +17,12 @@ export class MnistHandwritingComponent implements OnInit {
     this.loadModel();
   }
 
+  ngOnDestroy(): void {
+    this.model.dispose();
+  }
+
   async loadModel() {
-    this.model = await tf.loadLayersModel(
-      "../../../assets/ai-models/mnist/model.json"
-    );
+    this.model = await tf.loadLayersModel("assets/ai-models/mnist/model.json");
     console.log("Model Loaded!");
   }
 

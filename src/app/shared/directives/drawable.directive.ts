@@ -23,22 +23,22 @@ export class DrawableDirective implements OnInit {
     this.ctx = this.canvas.getContext("2d", { willReadFrequently: true });
   }
 
-  @HostListener("mouseup", ["$event"])
+  @HostListener("pointerup", ["$event"])
   onUp(_): void {
     this.newImage.emit(this.getImgData());
   }
 
-  @HostListener("mouseenter", ["$event"])
+  @HostListener("pointerenter", ["$event"])
   onEnter(e): void {
     this.setPosition(e);
   }
 
-  @HostListener("mousedown", ["$event"])
+  @HostListener("pointerdown", ["$event"])
   onMove(e): void {
     this.setPosition(e);
   }
 
-  @HostListener("mousemove", ["$event"])
+  @HostListener("pointermove", ["$event"])
   onDown(e): void {
     if (e.buttons !== 1) {
       return;
