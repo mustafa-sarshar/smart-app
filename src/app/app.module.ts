@@ -21,8 +21,8 @@ import { ChartComponent } from "./shared/ui-gadgets/chart/chart.component";
   declarations: [
     AppComponent,
     LinearRegressionComponent,
-    NavMainComponent,
-    LoadingSpinnerComponent,
+    // NavMainComponent,
+    // LoadingSpinnerComponent,
     WelcomePageComponent,
     MnistHandwritingComponent,
     DrawableDirective,
